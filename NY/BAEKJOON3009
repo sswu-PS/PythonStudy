@@ -1,0 +1,7 @@
+a = [] #x값들 저장
+b = [] #y값들 저장
+for i in range(3):
+    x, y = map(int, input().split())
+    a.append(x)
+    b.append(y)
+print(min(a, key= a.count), min(b, key = b.count))
