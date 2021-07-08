@@ -1,0 +1,9 @@
+d = list(map(int, input().split()))
+YT = 0 # 영식 요금제 요금
+MT = 0 # 만식 요금제 요금
+for time in d:
+    YT += (time // 30 + 1) * 10
+    MT += (time // 60 + 1) * 15
+if YT < MT: print('Y', YT)
+elif YT > MT: print('M', MT)
+else: print('Y M', YT)
