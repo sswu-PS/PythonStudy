@@ -1,0 +1,14 @@
+while(True):
+    N = int(input())
+    if N == 0: break
+    length = 2 #호수판의 너비(기본값으로 오른쪽,왼쪽 여백 포함)
+    s = str(N) #숫자를 문자열로 변환
+    d = []
+    for i in range(len(s)):
+        d.append(s[i])
+    length += len(d)-1 #각 숫자 사이의 여백
+    for i in d:
+        if i == '1': length += 2
+        elif i == '0': length += 4
+        else: length += 3
+    print(length)
