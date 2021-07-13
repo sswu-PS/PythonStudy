@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+using namespace std;
+vector<string>used;
+
+bool checkUsed(string str)  //이미 사용한 단어인지 검사
+{ 
+    for (int i = 0; i < used.size(); i++)
+        if (used[i] == str) return 0;
+    return 1;
+}
+
+bool checkLast(string str) //단어가 이어지는지 검사
+{
+    string last = used.back(); 
+    if (last[last.size()-1] == str[0]) return 1;
+    return 0;
+}
+
+vector<int> solution(int n, vector<string> words) {
+    vector<int> answer = { 0,0 }; //미리 0,0 대입
+    for (int i = 0; i < words.size(); i++)
+    {
+        if (i == 0) { //첫번째는 추가 후 continue
+            used.push_back(words[i]);
+            continue;
+        }
+        if (checkUsed(words[i]) == 0 || checkLast(words[i]) ==0) { //조건에 어긋나면 
+            answer[0] = (i + 1) % n == 0 ? n : (i+1) % n; //사람의 번호
+            answer[1] = ceil(double(i + 1) / n) ; //차례(올림)
+            return answer; //발견되면 바로 리턴
+        }
+        else used.push_back(words[i]);
+    }
+    return answer; //문제가 없으면 {0,0} 반환
+}
