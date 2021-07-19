@@ -1,0 +1,12 @@
+M = int(input())
+cup = [1, 2, 3]
+indexX = 0 #X컵의 인덱스
+indexY =0 #Y컵의 인덱스
+for _ in range(M):
+    X, Y = map(int, input().split())
+    for i in range(3):
+        if X == cup[i]: indexX = i
+        if Y == cup[i]: indexY = i
+    cup[indexX], cup[indexY] = cup[indexY], cup[indexX] #swap
+print(cup[0]) 
+​
