@@ -1,0 +1,16 @@
+A, B = map(int, input().split())
+if A % 4 == 0: #4의 배수인 경우
+    H1 = 4
+    W1 = A//4 - 1
+else:
+    H1 = A % 4
+    W1 = A//4
+if B % 4 == 0: #4의 배수인 경우
+    H2 = 4
+    W2 = B//4 - 1
+else:
+    H2 = B % 4
+    W2 = B//4
+H = abs(H1-H2) #남북방향거리
+W = abs(W1-W2) #동서방향길이
+print(H+W)
