@@ -1,0 +1,22 @@
+import math
+import sys
+def isPrime(a):  #소수인지 판별하는 함수
+    if a == 1: return False
+    n = int(math.sqrt(a))
+    for i in range(2, n+1):
+        if a % i == 0: return False
+    return True
+P, K = map(int, sys.stdin.readline().split())
+primes = []
+for i in range(P): #P까지 저장
+    if isPrime(i): primes.append(i)
+for i in primes:
+   for j in primes:
+        if i * j == P:
+            if i > K and j > K:
+                print("GOOD")
+                quit()
+            else:
+                print("BAD", i) if i <j else print("BAD", j)
+                quit()
+​
