@@ -1,0 +1,7 @@
+while(True):
+    leaf = 1 #이파리의 수
+    tree = list(map(int, input().split()))#splitting factor, 가지치기 수
+    if tree[0] == 0: break #0을 입력받았을 때
+    for i in range(1, 2*tree[0], 2):
+        leaf = leaf * tree[i] - tree[i+1]
+    print(leaf)
